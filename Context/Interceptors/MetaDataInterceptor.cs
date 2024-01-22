@@ -1,0 +1,47 @@
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+using Context.Extensions;
+
+namespace Context.Interceptors;
+
+public class MetaDataInterceptor : SaveChangesInterceptor
+{
+    public override InterceptionResult<int> SavingChanges(DbContextEventData eventData,
+        InterceptionResult<int> result)
+    {
+        ArgumentNullException.ThrowIfNull(eventData?.Context);
+        BeforeSaveTriggers(eventData.Context);
+        return result;
+    }
+
+    public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData,
+        InterceptionResult<int> result, CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(eventData?.Context);
+        BeforeSaveTriggers(eventData.Context);
+        return new ValueTask<InterceptionResult<int>>(result);
+    }
+
+    private void BeforeSaveTriggers([NotNull] DbContext context)
+    {
+        var canDisabledEntities = context.ChangeTracker.Entries()
+            .Where(x => x.Entity is ICanDisable).ToList();
+
+        foreach (var canDisabledEntity in canDisabledEntities)
+        {
+            var currentDisableValue = canDisabledEntity.Property(ShadowProperty.IsDisabled).CurrentValue;
+            if (currentDisableValue is bool disableValue)
+            {
+                if (disableValue)
+                {
+                    canDisabledEntity.SetCurrentValue(ShadowProperty.DisableDate, DateTimeOffset.UtcNow);
+                    canDisabledEntity.SetCurrentValue(ShadowProperty.DisabledByUser, Guid.NewGuid());
+                }
+                else
+                {
+                    canDisabledEntity.SetCurrentValue(ShadowProperty.DisableDate, null);
+                    canDisabledEntity.SetCurrentValue(ShadowProperty.DisabledByUser, null);
+                }
+            }
+        }
+    }
+}
