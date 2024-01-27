@@ -2,7 +2,7 @@
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Application.Utility;
+namespace BaseLib.Application.Utility;
 
 public class SwaggerCheckOperationFilter : IOperationFilter
 {

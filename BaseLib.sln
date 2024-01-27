@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{326ED82D-D57D-4625-8394-396C51668E2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseLib.Domain", "Domain\BaseLib.Domain.csproj", "{326ED82D-D57D-4625-8394-396C51668E2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{6BC558ED-FCF1-42FE-8DE4-E0D8810A6A8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseLib.Application", "Application\BaseLib.Application.csproj", "{6BC558ED-FCF1-42FE-8DE4-E0D8810A6A8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Context", "Context\Context.csproj", "{73C304A0-402F-42A7-A66B-AC3CAE2BEA20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseLib.Context", "Context\BaseLib.Context.csproj", "{73C304A0-402F-42A7-A66B-AC3CAE2BEA20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

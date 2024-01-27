@@ -1,4 +1,4 @@
-﻿namespace Application.Exceptions;
+﻿namespace BaseLib.Application.Exceptions;
 
 public class RecordNotFoundException : Exception
 {

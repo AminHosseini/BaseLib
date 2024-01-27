@@ -1,4 +1,4 @@
-﻿namespace Domain.Contracts;
+﻿namespace BaseLib.Domain.Contracts;
 
 public interface IEntity<TKey> : IEntity where TKey : struct
 {

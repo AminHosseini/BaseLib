@@ -1,1 +1,1 @@
-﻿global using Domain.Contracts;
+﻿global using BaseLib.Domain.Contracts;

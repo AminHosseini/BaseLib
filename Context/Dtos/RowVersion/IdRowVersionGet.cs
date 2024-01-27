@@ -1,4 +1,4 @@
-﻿namespace Context.Dtos.RowVersion;
+﻿namespace BaseLib.Context.Dtos.RowVersion;
 
 public readonly struct IdRowVersionGet : IEquatable<IdRowVersionGet>
 {

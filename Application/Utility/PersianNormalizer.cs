@@ -1,6 +1,6 @@
 ﻿using System.Buffers;
 
-namespace Application.Utility;
+namespace BaseLib.Application.Utility;
 
 public static class PersianNormalizer
 {
@@ -17,10 +17,10 @@ public static class PersianNormalizer
 
     private const int _persianArabicNumberDiff = 144;
 
-    private static readonly char[] _arabicNumbers = 
+    private static readonly char[] _arabicNumbers =
         new char[10] { '٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩' };
 
-    private static readonly Dictionary<char, char> _numericArabicPersianMap = 
+    private static readonly Dictionary<char, char> _numericArabicPersianMap =
         _arabicNumbers.ToDictionary((key) => key, (value) => (char)(value + 144));
 
     private static readonly char[] _arabicYe = new char[11]
@@ -33,8 +33,8 @@ public static class PersianNormalizer
 
     private const int _persianEnglishNumberDiff = 1728;
 
-    private static readonly Dictionary<char, char> _numericEnglishPersianMap = 
-        Enumerable.Range(48, 57).ToDictionary((key) 
+    private static readonly Dictionary<char, char> _numericEnglishPersianMap =
+        Enumerable.Range(48, 57).ToDictionary((key)
             => (char)key, (value) => (char)(value + 1728));
 
     private static readonly Dictionary<char, char> _translateMap = new Dictionary<char, char>
@@ -111,8 +111,8 @@ public static class PersianNormalizer
         ['۹'] = '9'
     };
 
-    public static ReadOnlySpan<char> NormalizeIt(this ReadOnlySpan<char> input, 
-        PersianCorrections corrections = PersianCorrections.ConvertArabicYeKaf 
+    public static ReadOnlySpan<char> NormalizeIt(this ReadOnlySpan<char> input,
+        PersianCorrections corrections = PersianCorrections.ConvertArabicYeKaf
         | PersianCorrections.ConvertArabicNumber)
     {
         if (input.Length == 0)
@@ -198,11 +198,11 @@ public static class PersianNormalizer
         return input;
     }
 
-    public static ReadOnlySpan<char> ReplaceArabic(this ReadOnlySpan<char> input, 
+    public static ReadOnlySpan<char> ReplaceArabic(this ReadOnlySpan<char> input,
         PersianCorrections extra = PersianCorrections.ConvertArabicYeKaf | PersianCorrections.ConvertArabicNumber)
         => input.NormalizeIt(PersianCorrections.ConvertArabicYeKaf | PersianCorrections.ConvertArabicNumber | extra);
 
-    public static ReadOnlySpan<char> ReplaceArabic(this string? input, 
+    public static ReadOnlySpan<char> ReplaceArabic(this string? input,
         PersianCorrections extra = PersianCorrections.ConvertArabicYeKaf | PersianCorrections.ConvertArabicNumber)
         => NormalizeIt(input, PersianCorrections.ConvertArabicYeKaf | PersianCorrections.ConvertArabicNumber | extra);
 

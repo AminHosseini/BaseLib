@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace Application.Extensions;
+namespace BaseLib.Application.Extensions;
 
 public static class HttpStatusCodeUrlExtension
 {

@@ -1,4 +1,4 @@
-﻿namespace Context;
+﻿namespace BaseLib.Context;
 
 public abstract class DbContextCore : DbContext
 {

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using MediatR;
 
-namespace Application.Commons;
+namespace BaseLib.Application.Commons;
 
 [ApiController]
 [Route("api/[controller]")]

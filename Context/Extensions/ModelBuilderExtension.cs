@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Domain.Contracts;
+using BaseLib.Domain.Contracts;
 
-namespace Context.Extensions;
+namespace BaseLib.Context.Extensions;
 
 public static class ModelBuilderExtension
 {

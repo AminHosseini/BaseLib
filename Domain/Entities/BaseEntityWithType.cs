@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Domain.Entities;
+namespace BaseLib.Domain.Entities;
 
 public abstract class BaseEntity<TKey> : IEntity<TKey>, IEntity where TKey : struct
 {

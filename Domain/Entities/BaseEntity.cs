@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities;
+﻿namespace BaseLib.Domain.Entities;
 
 public abstract class BaseEntity : BaseEntity<long>
 {

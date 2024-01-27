@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Context.Interceptors;
+using BaseLib.Context.Interceptors;
 
-namespace Context.Extensions;
+namespace BaseLib.Context.Extensions;
 
 public static class DbContextExtension
 {

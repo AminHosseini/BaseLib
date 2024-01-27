@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace Context.Extensions;
+namespace BaseLib.Context.Extensions;
 
 public static class EntityEntryExtention
 {

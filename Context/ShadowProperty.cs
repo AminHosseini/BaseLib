@@ -1,4 +1,4 @@
-﻿namespace Context;
+﻿namespace BaseLib.Context;
 
 public static class ShadowProperty
 {

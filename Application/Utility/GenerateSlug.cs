@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Application.Utility;
+namespace BaseLib.Application.Utility;
 
 public static class GenerateSlug
 {

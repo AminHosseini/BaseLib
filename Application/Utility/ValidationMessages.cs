@@ -1,6 +1,6 @@
-﻿using Application.Extensions;
+﻿using BaseLib.Application.Extensions;
 
-namespace Application.Utility;
+namespace BaseLib.Application.Utility;
 
 public static class ValidationMessages
 {

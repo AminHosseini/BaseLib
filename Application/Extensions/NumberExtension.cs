@@ -1,4 +1,4 @@
-﻿namespace Application.Extensions;
+﻿namespace BaseLib.Application.Extensions;
 
 public static class NumberExtension
 {

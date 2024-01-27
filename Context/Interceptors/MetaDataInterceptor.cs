@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Diagnostics;
-using Context.Extensions;
+using BaseLib.Context.Extensions;
 
-namespace Context.Interceptors;
+namespace BaseLib.Context.Interceptors;
 
 public class MetaDataInterceptor : SaveChangesInterceptor
 {
