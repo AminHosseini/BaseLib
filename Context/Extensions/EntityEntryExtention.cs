@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using BaseLib.Context.Dtos.RowVersion;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace BaseLib.Context.Extensions;
 
@@ -17,12 +18,12 @@ public static class EntityEntryExtention
             entry.Property(propertyName2).CurrentValue = value;
     }
 
-    //public static void SetRowVersionCurrentValue([NotNull] this EntityEntry entry, RowVersionValue value)
-    //    => entry.SetCurrentValue(ShadowProperty.RowVersion, value.ToByteArray());
+    public static void SetRowVersionCurrentValue([NotNull] this EntityEntry entry, RowVersionValue value)
+        => entry.SetCurrentValue(ShadowProperty.RowVersion, value.ToByteArray());
 
-    //public static void SetRowVersionCurrentValue([NotNull] this EntityEntry entry, string value)
-    //    => entry.SetCurrentValue(ShadowProperty.RowVersion, Convert.FromBase64String(value));
+    public static void SetRowVersionCurrentValue([NotNull] this EntityEntry entry, string value)
+        => entry.SetCurrentValue(ShadowProperty.RowVersion, Convert.FromBase64String(value));
 
-    //public static void SetRowVersionCurrentValue([NotNull] this EntityEntry entry, byte[] value)
-    //    => entry.SetCurrentValue(ShadowProperty.RowVersion, value);
+    public static void SetRowVersionCurrentValue([NotNull] this EntityEntry entry, byte[] value)
+        => entry.SetCurrentValue(ShadowProperty.RowVersion, value);
 }
