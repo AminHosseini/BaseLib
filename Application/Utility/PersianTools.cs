@@ -57,7 +57,7 @@ public static class PersianTools
         return cash;
     }
 
-    public static string ToPersianNumber(this int intNum)
+    public static string ToPersianNumber(this long intNum)
     {
         var chash = intNum.ToString();
         for (var i = 0; i < 10; i++)
