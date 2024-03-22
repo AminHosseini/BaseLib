@@ -5,7 +5,7 @@ using MediatR;
 namespace BaseLib.Application.Commons;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api")]
 [Produces("application/json")]
 public abstract class ApiControllerBase : ControllerBase
 {
