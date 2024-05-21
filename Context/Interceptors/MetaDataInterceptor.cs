@@ -34,7 +34,9 @@ public class MetaDataInterceptor : SaveChangesInterceptor
                 if (disableValue)
                 {
                     canDisabledEntity.SetCurrentValue(ShadowProperty.DisableDate, DateTimeOffset.UtcNow);
-                    canDisabledEntity.SetCurrentValue(ShadowProperty.DisabledByUser, Guid.NewGuid());
+
+                    // This 1 must later be changed by a real user
+                    canDisabledEntity.SetCurrentValue(ShadowProperty.DisabledByUser, 1);
                 }
                 else
                 {

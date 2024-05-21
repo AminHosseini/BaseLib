@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <PackageId>BaseLib.Context</PackageId>
     <Title>BaseLib Context</Title>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Amin Hosseini</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>

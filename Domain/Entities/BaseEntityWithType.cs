@@ -2,15 +2,29 @@
 
 namespace BaseLib.Domain.Entities;
 
+/// <summary>
+/// پیاده سازی موجودیت با نوع عمومی دارای آیدی
+/// </summary>
+/// <typeparam name="TKey">نوع</typeparam>
 public abstract class BaseEntity<TKey> : IEntity<TKey>, IEntity where TKey : struct
 {
+    /// <summary>
+    /// آیدی
+    /// </summary>
     public TKey Id { get; set; }
-    public Guid SerialNumber { get; set; }
+    //public Guid SerialNumber { get; set; }
 
+    /// <summary>
+    /// سازنده کلاس
+    /// </summary>
     protected BaseEntity()
     {
     }
 
+    /// <summary>
+    /// سازنده کلاس با آیدی
+    /// </summary>
+    /// <param name="id">آیدی</param>
     protected BaseEntity(TKey id)
     {
         Id = id;

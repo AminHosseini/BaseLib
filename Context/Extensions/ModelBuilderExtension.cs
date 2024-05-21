@@ -101,7 +101,7 @@ public static class ModelBuilderExtension
         {
             modelBuilder.Entity(mutableEntityType.Name).Property<bool>(ShadowProperty.IsDeleted).HasDefaultValue(false);
 
-            modelBuilder.Entity(mutableEntityType.Name).Property<Guid?>(ShadowProperty.DeletedByUser)
+            modelBuilder.Entity(mutableEntityType.Name).Property<long?>(ShadowProperty.DeletedByUser)
                 .HasComment("کاربر حذف کننده");
 
             modelBuilder.Entity(mutableEntityType.Name).Property<DateTimeOffset?>(ShadowProperty.DeleteDate)
@@ -111,23 +111,43 @@ public static class ModelBuilderExtension
         return modelBuilder;
     }
 
-    public static ModelBuilder ApplyDisable(this ModelBuilder modelBuilder)
+    //public static ModelBuilder ApplyDisable(this ModelBuilder modelBuilder)
+    //{
+    //    bool isEmpty;
+    //    IMutableEntityType[] entities = modelBuilder.GetEntities<ICanDisable>(out isEmpty);
+    //    if (isEmpty)
+    //        return modelBuilder;
+
+    //    foreach (IMutableEntityType mutableEntityType in entities)
+    //    {
+    //        modelBuilder.Entity(mutableEntityType.Name).Property<bool>(ShadowProperty.IsDisabled).HasDefaultValue(false)
+    //            .HasComment("آیا غیرفعال است");
+
+    //        modelBuilder.Entity(mutableEntityType.Name).Property<Guid?>(ShadowProperty.DisabledByUser)
+    //            .HasComment("کاربر غیرفعال کننده");
+
+    //        modelBuilder.Entity(mutableEntityType.Name).Property<DateTimeOffset?>(ShadowProperty.DisableDate)
+    //            .HasComment("تاریخ غیرفعال");
+    //    }
+
+    //    return modelBuilder;
+    //}
+
+    public static ModelBuilder ApplyCreationDate(this ModelBuilder modelBuilder)
     {
         bool isEmpty;
-        IMutableEntityType[] entities = modelBuilder.GetEntities<ICanDisable>(out isEmpty);
+        IMutableEntityType[] entities = modelBuilder.GetEntities<IHaveCreationInfo>(out isEmpty);
         if (isEmpty)
             return modelBuilder;
 
         foreach (IMutableEntityType mutableEntityType in entities)
         {
-            modelBuilder.Entity(mutableEntityType.Name).Property<bool>(ShadowProperty.IsDisabled).HasDefaultValue(false)
-                .HasComment("آیا غیرفعال است");
+            modelBuilder.Entity(mutableEntityType.Name).Property<DateTimeOffset>(ShadowProperty.CreationDate)
+                .HasDefaultValue(DateTimeOffset.UtcNow).HasComment("تاریخ ساخت");
 
-            modelBuilder.Entity(mutableEntityType.Name).Property<Guid?>(ShadowProperty.DisabledByUser)
-                .HasComment("کاربر غیرفعال کننده");
-
-            modelBuilder.Entity(mutableEntityType.Name).Property<DateTimeOffset?>(ShadowProperty.DisableDate)
-                .HasComment("تاریخ غیرفعال");
+            // This 1 must later be changed by a real user
+            modelBuilder.Entity(mutableEntityType.Name).Property<long>(ShadowProperty.CreatedByUser)
+                .HasDefaultValue(1).HasComment("کاربر سازنده");
         }
 
         return modelBuilder;
@@ -141,6 +161,7 @@ public static class ModelBuilderExtension
             .ApplyRowVersion()
             .ApplyFromUntil()
             .ApplySoftDelete()
-            .ApplyDisable();
+            .ApplyCreationDate();
+        //.ApplyDisable();
     }
 }
