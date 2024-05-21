@@ -143,11 +143,11 @@ public static class ModelBuilderExtension
         foreach (IMutableEntityType mutableEntityType in entities)
         {
             modelBuilder.Entity(mutableEntityType.Name).Property<DateTimeOffset>(ShadowProperty.CreationDate)
-                .HasDefaultValue(DateTimeOffset.UtcNow).HasComment("تاریخ ساخت");
+                .HasComment("تاریخ ساخت");
 
             // This 1 must later be changed by a real user
             modelBuilder.Entity(mutableEntityType.Name).Property<long>(ShadowProperty.CreatedByUser)
-                .HasDefaultValue(1).HasComment("کاربر سازنده");
+                .HasComment("کاربر سازنده");
         }
 
         return modelBuilder;

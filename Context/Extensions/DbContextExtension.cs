@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using BaseLib.Context.Interceptors;
+//using BaseLib.Context.Interceptors;
 
 namespace BaseLib.Context.Extensions;
 
@@ -28,9 +28,9 @@ public static class DbContextExtension
     //    });
     //}
 
-    public static DbContextOptionsBuilder AddDefaultInterceptors(this DbContextOptionsBuilder builder, IServiceProvider serviceProvider)
-    {
-        builder.AddInterceptors(serviceProvider.GetRequiredService<MetaDataInterceptor>());
-        return builder;
-    }
+    //public static DbContextOptionsBuilder AddDefaultInterceptors(this DbContextOptionsBuilder builder, IServiceProvider serviceProvider)
+    //{
+    //    builder.AddInterceptors(serviceProvider.GetRequiredService<MetaDataInterceptor>());
+    //    return builder;
+    //}
 }
