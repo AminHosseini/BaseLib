@@ -47,9 +47,9 @@ public static class ModelBuilderExtension
         foreach (Type type in entityTypes)
         {
             modelBuilder.Entity(type).HasKey("Id");
-            modelBuilder.Entity(type).Property<Guid>("SerialNumber").HasDefaultValueSql("(newsequentialid())")
-                .HasComment("شماره سریال برای ارتباط با باقی سیستم ها")
-                .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            //modelBuilder.Entity(type).Property<Guid>("SerialNumber").HasDefaultValueSql("(newsequentialid())")
+            //    .HasComment("شماره سریال برای ارتباط با باقی سیستم ها")
+            //    .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
         }
 
         return modelBuilder;
