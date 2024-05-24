@@ -13,6 +13,12 @@ public static class ValidationMessages
     public static string MaximumListCountMessage(int charCount)
         => $"حداکثر تعداد مجاز {charCount.ToString(CultureInfo.InvariantCulture).EnglishToPersianNumber()} میباشد";
 
+    public static string MaximumFileSize(long size)
+        => $"اندازه فایل باید حداکثر {size.ToString(CultureInfo.InvariantCulture).EnglishToPersianNumber()} مگابایت باشد";
+
+    public static string AllowedFileFormats(string allowedFormats)
+        => $"فقط مجاز به آپلود فایل به فرمت های {allowedFormats} هستید";
+
     public const string NullMessage = "این فیلد نمیتواند خالی باشد";
     public const string ZeroMessage = "لطفا مقدار دیگری را برای این فیلد انتخاب کنید";
     public const string SelectFromEnumListMessage = "لطفا یکی از موارد موجود در لیست را انتخاب نمایید";
