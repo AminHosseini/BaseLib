@@ -17,7 +17,7 @@ public static class ValidationMessages
         => $"اندازه فایل باید حداکثر {size.ToString(CultureInfo.InvariantCulture).EnglishToPersianNumber()} مگابایت باشد";
 
     public static string AllowedFileFormats(string allowedFormats)
-        => $"فقط مجاز به آپلود فایل به فرمت های {allowedFormats} هستید";
+        => $"هستید {allowedFormats} فقط مجاز به آپلود فایل با فرمت های";
 
     public const string NullMessage = "این فیلد نمیتواند خالی باشد";
     public const string ZeroMessage = "لطفا مقدار دیگری را برای این فیلد انتخاب کنید";
